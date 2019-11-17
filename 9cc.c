@@ -160,6 +160,26 @@ void gen(Node *node) {
 		printf("\tcqo\n");
 		printf("\tidiv rdi\n");
 		break;
+	case ND_EQ:
+		printf("\tcmp rax, rdi\n");
+		printf("\tsete al\n");
+		printf("\tmovzb rax, al\n");
+		break;
+	case ND_NE:
+		printf("\tcmp rax, rdi\n");
+		printf("\tsetne al\n");
+		printf("\tmovzb rax, al\n");
+		break;
+	case ND_LT:
+		printf("\tcmp rax, rdi\n");
+		printf("\tsetl al\n");
+		printf("\tmovzb rax, al\n");
+		break;
+	case ND_LE:		
+		printf("\tcmp rax, rdi\n");
+		printf("\tsetle al\n");
+		printf("\tmovzb rax, al\n");
+		break;
 	}
 
 	printf("\tpush rax\n");
